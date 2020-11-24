@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "planner-app"
+  "defaultProject": "planner-app",
+  "cli": {
+    "analytics": false
+  }
 }
