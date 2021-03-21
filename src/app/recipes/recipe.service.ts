@@ -9,25 +9,32 @@ export class RecipeService {
 
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe('Test Recipe', 
-              'Bread 1', 
-              'https://www.seriouseats.com/2011/06/20200419-no-knead-bread-vicky-wasik2.jpg', 
-              [
-                new Ingredient('meat', 1),
-                new Ingredient('loaf', 20)
-              ]),
+  // private recipes: Recipe[] = [
+  //   new Recipe('Test Recipe', 
+  //             'Bread 1', 
+  //             'https://www.seriouseats.com/2011/06/20200419-no-knead-bread-vicky-wasik2.jpg', 
+  //             [
+  //               new Ingredient('meat', 1),
+  //               new Ingredient('loaf', 20)
+  //             ]),
               
-    new Recipe('Another Test Recipe', 
-                'Bread 2', 
-                'https://i1.wp.com/gatherforbread.com/wp-content/uploads/2015/08/Easiest-Yeast-Bread.jpg?resize=500%2C500&ssl=1', 
-                [
-                  new Ingredient('cheese', 3),
-                  new Ingredient('Bread', 3)
-                ])
-  ];
+  //   new Recipe('Another Test Recipe', 
+  //               'Bread 2', 
+  //               'https://i1.wp.com/gatherforbread.com/wp-content/uploads/2015/08/Easiest-Yeast-Bread.jpg?resize=500%2C500&ssl=1', 
+  //               [
+  //                 new Ingredient('cheese', 3),
+  //                 new Ingredient('Bread', 3)
+  //               ])
+  // ];
+
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService){}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes(){
     return this.recipes.slice();
