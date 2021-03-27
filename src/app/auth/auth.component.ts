@@ -5,7 +5,7 @@ import { Observable, Subscription } from "rxjs";
 import { AlertComponent } from "../shared/alert/alert.component";
 import { AuthResponseData, AuthService } from "./auth.service";
 import { PlaceholderDirective} from '../shared/placeholder/placeholder.directive';
-import { hostViewClassName } from "@angular/compiler";
+
 
 @Component({
     selector: 'app-auth',
